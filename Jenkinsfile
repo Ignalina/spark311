@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('error') {
       steps {
-        sh './dev/make-distribution.sh --name iganlina-spark --pip --r --tgz  -Phive -Phive-thriftserver -Dhadoop.version=3.2.2 -DskipTests'
+        sh '''export MAVEN_OPTS="-Xmx24g -XX:ReservedCodeCacheSize=1g"
+./dev/make-distribution.sh --name iganlina-spark --pip --r --tgz  -Phive -Phive-thriftserver -Dhadoop.version=3.2.2 -DskipTests'''
       }
     }
 
