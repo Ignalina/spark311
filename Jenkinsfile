@@ -1,11 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        sh '''/dev/make-distribution.sh --name iganlina-spark -Dhadoop.version=2.8.5 -DskipTests --pip --r --tgz  -Phive -Phive-thriftserver
-
-'''
+        sh './dev/make-distribution.sh --name iganlina-spark --pip --r --tgz  -Phive -Phive-thriftserver -Dhadoop.version=3.2.2 -DskipTests'
       }
     }
 
